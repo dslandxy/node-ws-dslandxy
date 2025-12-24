@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Network - Protect Earth</title>
+    <title>化学元素周期表</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -12,711 +12,636 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
-        :root {
-            --primary: #2e7d32;
-            --secondary: #4caf50;
-            --accent: #8bc34a;
-            --light: #e8f5e9;
-            --dark: #1b5e20;
-            --text: #333333;
-            --white: #ffffff;
-        }
-
+        
         body {
-            background-color: var(--light);
-            color: var(--text);
+            background-color: #f5f7fa;
+            color: #333;
             line-height: 1.6;
+            padding: 20px;
         }
-
-        header {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
+        
         .container {
-            width: 90%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
-
-        .nav-container {
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e6ef;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.8rem;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .controls {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+            gap: 15px;
         }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        .logo i {
-            font-size: 2rem;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
+        
+        .search-box {
+            flex: 1;
+            min-width: 300px;
             position: relative;
         }
-
-        nav ul li a:hover {
-            color: var(--accent);
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            border: 2px solid #dce1e8;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
         }
-
-        nav ul li a::after {
-            content: '';
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        
+        .search-box i {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: var(--white);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        section {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent);
-            border-radius: 2px;
-        }
-
-        .section-title p {
-            color: var(--text);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-img {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .about-img:hover img {
-            transform: scale(1.05);
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem 1rem;
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .stat-item i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .stat-item h3 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item p {
-            color: var(--text);
-        }
-
-        .initiatives {
-            background-color: var(--white);
-        }
-
-        .initiatives-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .initiative-card {
-            background-color: var(--light);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .initiative-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .initiative-img {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .initiative-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .initiative-card:hover .initiative-img img {
-            transform: scale(1.1);
-        }
-
-        .initiative-content {
-            padding: 1.5rem;
-        }
-
-        .initiative-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .initiative-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        .cta {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--white);
-            text-align: center;
-            padding: 5rem 0;
-        }
-
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta p {
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #95a5a6;
             font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
         }
-
-        .cta .btn {
-            background-color: var(--white);
-            color: var(--primary);
-        }
-
-        .cta .btn:hover {
-            background-color: var(--accent);
-            color: var(--white);
-        }
-
-        footer {
-            background-color: var(--dark);
-            color: var(--white);
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--accent);
-        }
-
-        .footer-column p {
-            margin-bottom: 1rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links li a {
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links li a:hover {
-            color: var(--accent);
-            padding-left: 5px;
-        }
-
-        .social-links {
+        
+        .legend {
             display: flex;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 10px;
             align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: var(--white);
-            text-decoration: none;
-            transition: all 0.3s ease;
+            justify-content: flex-end;
+            flex: 1;
         }
-
-        .social-links a:hover {
-            background-color: var(--accent);
-            transform: translateY(-5px);
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
         }
-
-        .copyright {
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+            margin-right: 6px;
+        }
+        
+        .periodic-table {
+            display: grid;
+            grid-template-columns: repeat(18, 1fr);
+            grid-gap: 4px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .element {
+            background-color: #ecf0f1;
+            border-radius: 6px;
+            padding: 10px 5px;
             text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
             cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            min-height: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-
-        @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
+        
+        .element:hover {
+            transform: scale(1.08);
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .element-number {
+            font-size: 0.8rem;
+            font-weight: bold;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+        }
+        
+        .element-symbol {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .element-name {
+            font-size: 0.7rem;
+        }
+        
+        .element-mass {
+            font-size: 0.7rem;
+            margin-top: 3px;
+        }
+        
+        /* 空白元素 */
+        .empty {
+            background-color: transparent;
+            cursor: default;
+        }
+        
+        .empty:hover {
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* 元素类型颜色 */
+        .alkali-metal { background-color: #ff9a9e; }
+        .alkaline-earth { background-color: #fad0c4; }
+        .transition-metal { background-color: #a1c4fd; }
+        .basic-metal { background-color: #c2e9fb; }
+        .metalloid { background-color: #d4fc79; }
+        .nonmetal { background-color: #84fab0; }
+        .halogen { background-color: #f6d365; }
+        .noble-gas { background-color: #fda085; }
+        .lanthanide { background-color: #e0c3fc; }
+        .actinide { background-color: #8fd3f4; }
+        
+        /* 详细信息面板 */
+        .details-panel {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            display: none;
+        }
+        
+        .details-panel.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .details-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .details-symbol {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-right: 20px;
+            min-width: 80px;
+        }
+        
+        .details-name {
+            font-size: 2rem;
+            color: #2c3e50;
+        }
+        
+        .details-number {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-left: auto;
+        }
+        
+        .details-body {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .detail-item {
+            margin-bottom: 15px;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .detail-value {
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            display: none;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e6ef;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .periodic-table {
+                grid-template-columns: repeat(18, 1fr);
+                grid-gap: 3px;
             }
             
-            .initiatives-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .element {
+                min-height: 60px;
+                padding: 8px 3px;
             }
             
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
+            .element-symbol {
+                font-size: 1.2rem;
             }
             
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
+            .element-name {
+                font-size: 0.6rem;
             }
         }
-
+        
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .periodic-table {
+                grid-template-columns: repeat(9, 1fr);
             }
             
-            .hero p {
-                font-size: 1.1rem;
+            .element {
+                min-height: 55px;
             }
             
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary);
+            .controls {
                 flex-direction: column;
-                padding: 1rem 0;
-                text-align: center;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
             }
             
-            nav ul.active {
-                display: flex;
+            .legend {
+                justify-content: flex-start;
             }
             
-            nav ul li {
-                margin: 0;
-                padding: 0.8rem 0;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .initiatives-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
+            h1 {
+                font-size: 2rem;
             }
         }
-
-        /* Animation for stats counter */
-        .counter {
-            transition: all 0.5s ease;
+        
+        @media (max-width: 480px) {
+            .periodic-table {
+                grid-template-columns: repeat(5, 1fr);
+            }
+            
+            .details-body {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container nav-container">
-            <div class="logo">
-                <i class="fas fa-seedling"></i>
-                <span>Green Network</span>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-atom"></i> 化学元素周期表</h1>
+            <p class="subtitle">探索118种化学元素的性质与关系</p>
+        </header>
+        
+        <div class="controls">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="搜索元素名称、符号或原子序数...">
             </div>
-            <nav>
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
+            
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color alkali-metal"></div>
+                    <span>碱金属</span>
                 </div>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#initiatives">Initiatives</a></li>
-                    <li><a href="#get-involved">Get Involved</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1>Protect Our Planet, Preserve Our Future</h1>
-            <p>Join the global movement to create a sustainable world through conservation, education, and community action.</p>
-            <a href="#get-involved" class="btn">Join Our Network</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Green Network</h2>
-                <p>We are a global community dedicated to environmental protection and sustainable development.</p>
-            </div>
-            <div class="about-content">
-                <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Team planting trees">
+                <div class="legend-item">
+                    <div class="legend-color alkaline-earth"></div>
+                    <span>碱土金属</span>
                 </div>
-                <div class="about-text">
-                    <h3>Our Mission</h3>
-                    <p>Green Network is committed to creating a sustainable future by protecting natural ecosystems, promoting renewable energy, and empowering communities to take environmental action.</p>
-                    <p>Founded in 2010, we've grown from a small grassroots organization to an international network with over 50,000 members across 120 countries.</p>
-                    <p>Our approach combines scientific research, community engagement, and policy advocacy to address the most pressing environmental challenges of our time.</p>
-                    <a href="#" class="btn">Learn More</a>
+                <div class="legend-item">
+                    <div class="legend-color transition-metal"></div>
+                    <span>过渡金属</span>
                 </div>
-            </div>
-            <div class="stats">
-                <div class="stat-item">
-                    <i class="fas fa-tree"></i>
-                    <h3 class="counter" data-target="2500000">0</h3>
-                    <p>Trees Planted</p>
+                <div class="legend-item">
+                    <div class="legend-color basic-metal"></div>
+                    <span>基本金属</span>
                 </div>
-                <div class="stat-item">
-                    <i class="fas fa-users"></i>
-                    <h3 class="counter" data-target="50000">0</h3>
-                    <p>Active Members</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-globe-americas"></i>
-                    <h3 class="counter" data-target="120">0</h3>
-                    <p>Countries Reached</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-recycle"></i>
-                    <h3 class="counter" data-target="1500">0</h3>
-                    <p>Cleanup Projects</p>
+                <div class="legend-item">
+                    <div class="legend-color metalloid"></div>
+                    <span>类金属</span>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Initiatives Section -->
-    <section class="initiatives" id="initiatives">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Initiatives</h2>
-                <p>Discover the key programs and projects we're implementing to protect our planet.</p>
+        
+        <div class="periodic-table" id="periodicTable">
+            <!-- 元素周期表将通过JavaScript动态生成 -->
+        </div>
+        
+        <div class="no-results" id="noResults">
+            <i class="fas fa-search fa-2x" style="margin-bottom: 15px;"></i>
+            <p>未找到匹配的元素。请尝试其他搜索词。</p>
+        </div>
+        
+        <div class="details-panel" id="detailsPanel">
+            <div class="details-header">
+                <div class="details-symbol" id="detailSymbol">H</div>
+                <div class="details-name" id="detailName">氢</div>
+                <div class="details-number">原子序数: <span id="detailNumber">1</span></div>
             </div>
-            <div class="initiatives-grid">
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://dialogue.earth/content/uploads/2021/04/lessons-from-the-rush-to-reforest-china-dialogue-2400x1599.jpg" alt="Reforestation">
-                    </div>
-                    <div class="initiative-content">
-                        <h3>Global Reforestation</h3>
-                        <p>Planting millions of trees worldwide to restore ecosystems, combat climate change, and protect biodiversity.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
+            <div class="details-body">
+                <div class="detail-item">
+                    <div class="detail-label">英文名</div>
+                    <div class="detail-value" id="detailEnglish">Hydrogen</div>
                 </div>
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Ocean Conservation">
-                    </div>
-                    <div class="initiative-content">
-                        <h3>Ocean Conservation</h3>
-                        <p>Protecting marine ecosystems, reducing plastic pollution, and promoting sustainable fishing practices.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
+                <div class="detail-item">
+                    <div class="detail-label">原子量</div>
+                    <div class="detail-value" id="detailMass">1.008</div>
                 </div>
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Renewable Energy">
-                    </div>
-                    <div class="initiative-content">
-                        <h3>Renewable Energy</h3>
-                        <p>Promoting solar, wind, and other clean energy sources to reduce dependence on fossil fuels.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
+                <div class="detail-item">
+                    <div class="detail-label">密度 (g/cm³)</div>
+                    <div class="detail-value" id="detailDensity">0.0000899</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">类别</div>
+                    <div class="detail-value" id="detailCategory">非金属</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">电子排布</div>
+                    <div class="detail-value" id="detailElectron">1s¹</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">熔点 (°C)</div>
+                    <div class="detail-value" id="detailMelting">-259.16</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">沸点 (°C)</div>
+                    <div class="detail-value" id="detailBoiling">-252.87</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">发现年份</div>
+                    <div class="detail-value" id="detailYear">1766</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">发现者</div>
+                    <div class="detail-value" id="detailDiscoverer">亨利·卡文迪许</div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta" id="get-involved">
-        <div class="container">
-            <h2>Join Our Global Movement</h2>
-            <p>Together, we can create a sustainable future for generations to come. Every action counts, no matter how small.</p>
-            <a href="#" class="btn">Become a Member</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Green Network</h3>
-                    <p>We are dedicated to protecting our planet through collaborative action, education, and sustainable solutions.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#initiatives">Initiatives</a></li>
-                        <li><a href="#get-involved">Get Involved</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Our Programs</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Reforestation</a></li>
-                        <li><a href="#">Ocean Cleanup</a></li>
-                        <li><a href="#">Wildlife Protection</a></li>
-                        <li><a href="#">Climate Education</a></li>
-                        <li><a href="#">Sustainable Agriculture</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Copper Creek Drive, New York</p>
-                    <p><i class="fas fa-phone"></i> +1 (312) 171-0771</p>
-                    <p><i class="fas fa-envelope"></i> support@greennetwork.org</p>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 Green Network. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+        
+        <footer>
+            <p>元素周期表 &copy; 2023 | 数据来源: 国际纯粹与应用化学联合会 (IUPAC)</p>
+            <p style="margin-top: 5px;">本页面仅用于学习目的，展示118种已知化学元素</p>
+        </footer>
+    </div>
 
     <script>
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
-        });
+        // 元素数据
+        const elements = [
+            { number: 1, symbol: "H", name: "氢", english: "Hydrogen", mass: 1.008, category: "nonmetal", 
+              density: 0.0000899, electron: "1s¹", melting: -259.16, boiling: -252.87, year: 1766, discoverer: "亨利·卡文迪许" },
+            { number: 2, symbol: "He", name: "氦", english: "Helium", mass: 4.0026, category: "noble-gas", 
+              density: 0.0001785, electron: "1s²", melting: -272.2, boiling: -268.93, year: 1868, discoverer: "皮埃尔·让森" },
+            { number: 3, symbol: "Li", name: "锂", english: "Lithium", mass: 6.94, category: "alkali-metal", 
+              density: 0.534, electron: "[He] 2s¹", melting: 180.54, boiling: 1342, year: 1817, discoverer: "约翰·奥古斯特·阿弗韦聪" },
+            { number: 4, symbol: "Be", name: "铍", english: "Beryllium", mass: 9.0122, category: "alkaline-earth", 
+              density: 1.85, electron: "[He] 2s²", melting: 1287, boiling: 2470, year: 1798, discoverer: "路易-尼古拉·沃克兰" },
+            { number: 5, symbol: "B", name: "硼", english: "Boron", mass: 10.81, category: "metalloid", 
+              density: 2.34, electron: "[He] 2s² 2p¹", melting: 2075, boiling: 4000, year: 1808, discoverer: "约瑟夫·路易·盖-吕萨克" },
+            { number: 6, symbol: "C", name: "碳", english: "Carbon", mass: 12.011, category: "nonmetal", 
+              density: 2.267, electron: "[He] 2s² 2p²", melting: 3550, boiling: 4827, year: "古代", discoverer: "未知" },
+            { number: 7, symbol: "N", name: "氮", english: "Nitrogen", mass: 14.007, category: "nonmetal", 
+              density: 0.0012506, electron: "[He] 2s² 2p³", melting: -210.01, boiling: -195.79, year: 1772, discoverer: "丹尼尔·卢瑟福" },
+            { number: 8, symbol: "O", name: "氧", english: "Oxygen", mass: 15.999, category: "nonmetal", 
+              density: 0.001429, electron: "[He] 2s² 2p⁴", melting: -218.79, boiling: -182.95, year: 1774, discoverer: "约瑟夫·普利斯特里" },
+            { number: 9, symbol: "F", name: "氟", english: "Fluorine", mass: 18.998, category: "halogen", 
+              density: 0.001696, electron: "[He] 2s² 2p⁵", melting: -219.67, boiling: -188.11, year: 1886, discoverer: "亨利·莫瓦桑" },
+            { number: 10, symbol: "Ne", name: "氖", english: "Neon", mass: 20.180, category: "noble-gas", 
+              density: 0.0008999, electron: "[He] 2s² 2p⁶", melting: -248.59, boiling: -246.08, year: 1898, discoverer: "威廉·拉姆齐" },
+            { number: 11, symbol: "Na", name: "钠", english: "Sodium", mass: 22.990, category: "alkali-metal", 
+              density: 0.971, electron: "[Ne] 3s¹", melting: 97.72, boiling: 883, year: 1807, discoverer: "汉弗里·戴维" },
+            { number: 12, symbol: "Mg", name: "镁", english: "Magnesium", mass: 24.305, category: "alkaline-earth", 
+              density: 1.738, electron: "[Ne] 3s²", melting: 650, boiling: 1090, year: 1755, discoverer: "约瑟夫·布莱克" },
+            { number: 13, symbol: "Al", name: "铝", english: "Aluminum", mass: 26.982, category: "basic-metal", 
+              density: 2.698, electron: "[Ne] 3s² 3p¹", melting: 660.32, boiling: 2519, year: 1825, discoverer: "汉斯·奥斯特" },
+            { number: 14, symbol: "Si", name: "硅", english: "Silicon", mass: 28.085, category: "metalloid", 
+              density: 2.329, electron: "[Ne] 3s² 3p²", melting: 1414, boiling: 3265, year: 1824, discoverer: "永斯·雅各布·贝采利乌斯" },
+            { number: 15, symbol: "P", name: "磷", english: "Phosphorus", mass: 30.974, category: "nonmetal", 
+              density: 1.82, electron: "[Ne] 3s² 3p³", melting: 44.15, boiling: 280.5, year: 1669, discoverer: "亨尼格·布兰德" },
+            { number: 16, symbol: "S", name: "硫", english: "Sulfur", mass: 32.06, category: "nonmetal", 
+              density: 2.067, electron: "[Ne] 3s² 3p⁴", melting: 115.21, boiling: 444.72, year: "古代", discoverer: "未知" },
+            { number: 17, symbol: "Cl", name: "氯", english: "Chlorine", mass: 35.45, category: "halogen", 
+              density: 0.003214, electron: "[Ne] 3s² 3p⁵", melting: -101.5, boiling: -34.04, year: 1774, discoverer: "卡尔·威廉·舍勒" },
+            { number: 18, symbol: "Ar", name: "氩", english: "Argon", mass: 39.948, category: "noble-gas", 
+              density: 0.001784, electron: "[Ne] 3s² 3p⁶", melting: -189.34, boiling: -185.85, year: 1894, discoverer: "威廉·拉姆齐" },
+            { number: 19, symbol: "K", name: "钾", english: "Potassium", mass: 39.098, category: "alkali-metal", 
+              density: 0.862, electron: "[Ar] 4s¹", melting: 63.38, boiling: 759, year: 1807, discoverer: "汉弗里·戴维" },
+            { number: 20, symbol: "Ca", name: "钙", english: "Calcium", mass: 40.078, category: "alkaline-earth", 
+              density: 1.55, electron: "[Ar] 4s²", melting: 842, boiling: 1484, year: 1808, discoverer: "汉弗里·戴维" },
+        ];
 
-        // Counter Animation
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            const speed = 200; // The lower the slower
+        // 元素周期表布局 (1-20号元素示例)
+        const periodicTableLayout = [
+            // 第一周期
+            [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
+            // 第二周期
+            [3, 4, 5, 6, 7, 8, 9, 10],
+            // 第三周期
+            [11, 12, 13, 14, 15, 16, 17, 18],
+            // 第四周期
+            [19, 20]
+        ];
+
+        // 类别到CSS类的映射
+        const categoryToClass = {
+            "alkali-metal": "alkali-metal",
+            "alkaline-earth": "alkaline-earth",
+            "transition-metal": "transition-metal",
+            "basic-metal": "basic-metal",
+            "metalloid": "metalloid",
+            "nonmetal": "nonmetal",
+            "halogen": "halogen",
+            "noble-gas": "noble-gas",
+            "lanthanide": "lanthanide",
+            "actinide": "actinide"
+        };
+
+        // 类别到中文名称的映射
+        const categoryToChinese = {
+            "alkali-metal": "碱金属",
+            "alkaline-earth": "碱土金属",
+            "transition-metal": "过渡金属",
+            "basic-metal": "基本金属",
+            "metalloid": "类金属",
+            "nonmetal": "非金属",
+            "halogen": "卤素",
+            "noble-gas": "稀有气体",
+            "lanthanide": "镧系元素",
+            "actinide": "锕系元素"
+        };
+
+        // DOM元素
+        const periodicTable = document.getElementById('periodicTable');
+        const detailsPanel = document.getElementById('detailsPanel');
+        const searchInput = document.getElementById('searchInput');
+        const noResults = document.getElementById('noResults');
+
+        // 初始化元素周期表
+        function initPeriodicTable() {
+            periodicTable.innerHTML = '';
             
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                
-                const inc = target / speed;
-                
-                if(count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(animateCounters, 1);
+            // 创建空白元素占位
+            for (let i = 0; i < 18 * 7; i++) {
+                const emptyElement = document.createElement('div');
+                emptyElement.className = 'element empty';
+                periodicTable.appendChild(emptyElement);
+            }
+            
+            // 放置元素
+            elements.forEach(element => {
+                // 根据元素序号计算位置（简化布局）
+                let position;
+                if (element.number <= 2) {
+                    // 第一周期
+                    position = element.number - 1;
+                } else if (element.number <= 10) {
+                    // 第二周期
+                    position = element.number + 15;
+                } else if (element.number <= 18) {
+                    // 第三周期
+                    position = element.number + 25;
+                } else if (element.number <= 20) {
+                    // 第四周期前两个元素
+                    position = element.number + 43;
                 } else {
-                    counter.innerText = target;
+                    // 其他元素，简单处理
+                    position = element.number + 43;
+                }
+                
+                // 创建元素div
+                const elementDiv = document.createElement('div');
+                elementDiv.className = `element ${categoryToClass[element.category] || 'transition-metal'}`;
+                elementDiv.dataset.number = element.number;
+                
+                elementDiv.innerHTML = `
+                    <div class="element-number">${element.number}</div>
+                    <div class="element-symbol">${element.symbol}</div>
+                    <div class="element-name">${element.name}</div>
+                    <div class="element-mass">${element.mass}</div>
+                `;
+                
+                // 点击显示详细信息
+                elementDiv.addEventListener('click', () => showElementDetails(element));
+                
+                // 替换空白元素
+                if (periodicTable.children[position]) {
+                    periodicTable.replaceChild(elementDiv, periodicTable.children[position]);
                 }
             });
+            
+            // 默认显示第一个元素的详细信息
+            if (elements.length > 0) {
+                showElementDetails(elements[0]);
+            }
         }
 
-        // Initialize counters when page loads
-        window.addEventListener('load', animateCounters);
+        // 显示元素详细信息
+        function showElementDetails(element) {
+            document.getElementById('detailSymbol').textContent = element.symbol;
+            document.getElementById('detailName').textContent = element.name;
+            document.getElementById('detailNumber').textContent = element.number;
+            document.getElementById('detailEnglish').textContent = element.english;
+            document.getElementById('detailMass').textContent = element.mass;
+            document.getElementById('detailDensity').textContent = element.density;
+            document.getElementById('detailCategory').textContent = categoryToChinese[element.category] || element.category;
+            document.getElementById('detailElectron').textContent = element.electron;
+            document.getElementById('detailMelting').textContent = element.melting;
+            document.getElementById('detailBoiling').textContent = element.boiling;
+            document.getElementById('detailYear').textContent = element.year;
+            document.getElementById('detailDiscoverer').textContent = element.discoverer;
+            
+            // 显示详细信息面板
+            detailsPanel.classList.add('active');
+            
+            // 高亮当前选中的元素
+            document.querySelectorAll('.element').forEach(el => {
+                el.classList.remove('selected');
+            });
+            
+            const selectedElement = document.querySelector(`.element[data-number="${element.number}"]`);
+            if (selectedElement) {
+                selectedElement.classList.add('selected');
+                selectedElement.style.boxShadow = '0 0 0 2px #3498db';
+            }
+        }
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
+        // 搜索元素
+        function searchElements() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            const allElements = document.querySelectorAll('.element:not(.empty)');
+            let found = false;
+            
+            allElements.forEach(element => {
+                const elementNumber = element.dataset.number;
+                const elementData = elements.find(e => e.number == elementNumber);
                 
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+                if (elementData) {
+                    const matches = 
+                        elementData.name.toLowerCase().includes(searchTerm) ||
+                        elementData.symbol.toLowerCase().includes(searchTerm) ||
+                        elementData.english.toLowerCase().includes(searchTerm) ||
+                        elementData.number.toString().includes(searchTerm);
                     
-                    document.querySelector('nav ul').classList.remove('active');
+                    if (matches || searchTerm === '') {
+                        element.style.display = 'flex';
+                        found = true;
+                    } else {
+                        element.style.display = 'none';
+                    }
                 }
             });
-        });
+            
+            // 显示/隐藏无结果消息
+            if (!found && searchTerm !== '') {
+                noResults.style.display = 'block';
+                detailsPanel.classList.remove('active');
+            } else {
+                noResults.style.display = 'none';
+                
+                // 如果之前有选中元素，确保它仍然可见
+                if (detailsPanel.classList.contains('active')) {
+                    const selectedElement = document.querySelector('.element.selected');
+                    if (selectedElement && selectedElement.style.display === 'none') {
+                        detailsPanel.classList.remove('active');
+                    }
+                }
+            }
+        }
+
+        // 事件监听
+        searchInput.addEventListener('input', searchElements);
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', initPeriodicTable);
     </script>
 </body>
-
 </html>
